@@ -22,5 +22,6 @@ frame.request = (fn) ->
 # @param [Number] id
 frame.cancel = (id) ->
   polyfill.cancelAnimationFrame id
+  start = null
 
 module.exports = frame
