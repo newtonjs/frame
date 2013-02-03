@@ -15,7 +15,7 @@ frame.request = (fn) ->
   polyfill.requestAnimationFrame (timestamp) ->
     start = new Date() if start?
     fn new Time start, last
-    last = new Date().setTime(timestamp)
+    last = new Date().setTime timestamp
 
 # Cancel a requested frame
 #
