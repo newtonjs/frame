@@ -12,10 +12,11 @@ Animation frame wrapper.
 var frame = require('newtonjs-frame');
 
 frame.request(function(time) {
-  console.log(time.now);    // [object Date]
-  console.log(time.last);   // [object Date]
-  console.log(time.delta);  // [object Number]
-  console.log(time.start);  // [object Date]
+  console.log(time.now);       // Timestamp of current
+  console.log(time.last);      // Timestamp of last
+  console.log(time.start);     // Timestamp of start
+  console.log(time.delta);     // Milliseconds since last
+  console.log(time.progress);  // Milliseconds since start
 });
 ```
 
