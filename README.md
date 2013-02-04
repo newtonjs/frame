@@ -1,6 +1,6 @@
 # newtonjs/frame #
 
-Animation frame dispatch.
+Animation frame wrapper.
 
 **Version:** *0.1.0*<br/>
 **Build status:** [![Build Status][travis-status]][travis]
@@ -54,4 +54,4 @@ You can find a copy of this license at http://www.opensource.org/licenses/mit
 
 <!-- Links -->
 [travis]: https://travis-ci.org/newtonjs/frame
-[travis-status]: https://travis-ci.org/newtonjs/frame.png?branch=master
+[travis-status]: https://travis-ci.org/newtonjs/frame.png

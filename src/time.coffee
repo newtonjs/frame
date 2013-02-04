@@ -4,10 +4,11 @@ class Time
 
   delta: 0
 
-  # @param [Date] start
-  # @param [Date] last
-  constructor: (@start, @last) ->
-    @now = new Date();
-    @delta = @now.getTime() - @last.getTime() if @last?
+  # @param [Number] start
+  # @param [Number] last
+  # @param [Number] progress
+  constructor: (@start, @last, @progress) ->
+    @now = Date.now();
+    @delta = @now - @last if @last?
 
 module.exports = {Time}

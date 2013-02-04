@@ -1,7 +1,7 @@
 'use strict'
 
-{Time}   = require './time'
-polyfill = require './polyfill'
+{Time} = require './time'
+raf    = require 'newtonjs-raf'
 
 frame = {}
 start = null
@@ -12,17 +12,15 @@ last  = null
 # @param [Function] fn
 # @return [Number] id
 frame.request = (fn) ->
-  polyfill.requestAnimationFrame (timestamp) ->
-    start = new Date() if start?
-    fn new Time start, last
-    last = new Date()
-    last.setTime timestamp
+  raf.requestAnimationFrame (timestamp) ->
+    start = Date.now() unless start?
+    fn new Time start, last, timestamp
+    last = Date.now()
 
 # Cancel a requested frame
 #
 # @param [Number] id
 frame.cancel = (id) ->
-  polyfill.cancelAnimationFrame id
-  start = null
+  raf.cancelAnimationFrame id
 
 module.exports = frame

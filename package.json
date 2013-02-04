@@ -26,6 +26,10 @@
     "compile": "./node_modules/.bin/coffee -co lib src"
   },
 
+  "dependencies": {
+    "newtonjs-raf": "git://github.com/newtonjs/raf.git#master"
+  },
+
   "devDependencies": {
     "chai": "1.4.x",
     "coffee-script": "1.4.x",
