@@ -11,7 +11,26 @@ Animation frame wrapper.
 ```js
 var frame = require('newtonjs-frame');
 
-frame.request(function(time) {
+var animate, id;
+(animate = function (time) {
+  // Render the current frame...
+
+  // ...then request the next one
+  id = frame.request(animate);
+})({});
+
+if (/* Some condition */) {
+  frame.cancel(id);
+}
+```
+
+The `time` argument passed to the callback is *much* more
+useful than the one given directly by `requestAnimationFrame`.
+
+```js
+var frame = require('newtonjs-frame');
+
+frame.request(function (time) {
   console.log(time.now);       // Timestamp of current
   console.log(time.last);      // Timestamp of last
   console.log(time.start);     // Timestamp of start
@@ -19,6 +38,9 @@ frame.request(function(time) {
   console.log(time.progress);  // Milliseconds since start
 });
 ```
+
+If you merely require a polyfill for `requestAnimationFrame`, you might find
+[**newtonjs/raf**][newtonjs-raf] better suits your needs.
 
 
 ### Installation ###
@@ -56,3 +78,4 @@ You can find a copy of this license at http://www.opensource.org/licenses/mit
 <!-- Links -->
 [travis]: https://travis-ci.org/newtonjs/frame
 [travis-status]: https://travis-ci.org/newtonjs/frame.png
+[newtonjs-raf]: https://github.com/newtonjs/raf
